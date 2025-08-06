@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Importador XML - SSParisi - V3</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self';">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: "Segoe UI", "Ubuntu", "Arial", sans-serif !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Importador de XML</h2>
+    <form autocomplete="off">
+      <div class="form-group">
+        <label for="document">Documento de identificação</label>
+        <div class="doc-select">
+          <input type="text" id="document" maxlength="18" placeholder="Informe CPF ou CNPJ" autocomplete="off">
+          <button type="button" id="validate-doc-btn" title="Localizar empresa na base SSParisi"><span class="material-icons">check_circle</span></button>
+        </div>
+        <span id="documentError" class="error"></span>
+      </div>
+      <div class="form-group">
+        <label for="directory">Diretório</label>
+        <div class="dir-select">
+          <input type="text" id="directory" readonly placeholder="Selecione um diretório">
+          <button type="button" id="dir-btn" title="Selecionar diretório"><span class="material-icons">folder_open</span></button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="btn-group btn-group-outside">
+    <button type="button" id="saveBtn" class="btn primary">Salvar</button>
+    <button type="button" id="cancelBtn" class="btn">Fechar</button>
+  </div>
+  <script src="./renderer.js"></script>
+</body>
+</html>
