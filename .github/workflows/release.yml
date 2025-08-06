@@ -37,8 +37,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-release-windows
     steps:
-      - name: Install snapcraft
-        run: sudo snap install snapcraft --classic
       - name: Clean electron-builder and AppImage cache
         run: |
           rm -rf node_modules/app-builder-bin/
@@ -63,6 +61,5 @@ jobs:
         with:
           files: |
             release/*.AppImage
-            release/*.snap
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
