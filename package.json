@@ -33,7 +33,7 @@
     "files": [
       "dist/**/*"
     ],
-    "publish": "never",
+    "publish": null,
     "win": {
       "target": [
         "nsis",
