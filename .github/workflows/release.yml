@@ -22,7 +22,6 @@ jobs:
       - name: Build installers
         run: yarn dist
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v1
@@ -35,4 +34,3 @@ jobs:
             release/*.snap
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
