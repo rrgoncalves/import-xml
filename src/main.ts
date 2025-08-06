@@ -37,7 +37,7 @@ class MainApp {
   private onReady = async () => {
     this.createWindow();
     this.createTray();
-    // process.env.GH_TOKEN = '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';
+    
     // Só verifica atualizações se estiver rodando como AppImage
     if (process.env.APPIMAGE) {
       autoUpdater.forceDevUpdateConfig = true;
