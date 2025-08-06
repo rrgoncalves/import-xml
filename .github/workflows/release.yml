@@ -31,4 +31,4 @@ jobs:
             release/*.AppImage
             release/*.snap
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: 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
