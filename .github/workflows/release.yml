@@ -47,6 +47,11 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build app
         run: yarn build
+      - name: Clean electron-builder and AppImage cache
+        run: |
+          rm -rf node_modules/app-builder-bin/
+          rm -rf ~/.cache/electron-builder/
+          rm -rf ~/.cache/electron/
       - name: Build installers (Linux)
         run: yarn dist --linux
         env:
