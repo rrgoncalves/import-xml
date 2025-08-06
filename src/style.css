@@ -1,0 +1,72 @@
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 32px 24px 24px 24px;
+}
+.form-group {
+  margin-bottom: 24px;
+}
+label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+input[type="text"] {
+  width: 80%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-right: 8px;
+}
+.dir-select, .doc-select {
+  display: flex;
+  align-items: center;
+}
+.material-icons {
+  font-size: 22px;
+  vertical-align: middle;
+}
+.btn-group {
+  display: flex;
+  gap: 12px;
+}
+.btn-group-outside {
+  justify-content: flex-end;
+  margin: 24px 24px 0 0;
+}
+.btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 4px;
+  background: #e0e0e0;
+  color: #333;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn.primary {
+  background: #1976d2;
+  color: #fff;
+}
+.btn.primary:hover {
+  background: #1565c0;
+}
+.btn:hover {
+  background: #bdbdbd;
+}
+.error {
+  color: #d32f2f;
+  font-size: 13px;
+  margin-top: 4px;
+  display: block;
+}
