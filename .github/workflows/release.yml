@@ -20,7 +20,7 @@ jobs:
       - name: Build app
         run: yarn build
       - name: Build installers (Windows)
-        run: yarn dist
+        run: yarn dist --win
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Upload Release Assets (Windows)
