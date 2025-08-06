@@ -3,7 +3,7 @@ name: Build and Release Electron App
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   build-release-windows:
@@ -14,7 +14,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build app
@@ -37,21 +37,21 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-release-windows
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build app
-        run: yarn build
       - name: Clean electron-builder and AppImage cache
         run: |
           rm -rf node_modules/app-builder-bin/
           rm -rf ~/.cache/electron-builder/
           rm -rf ~/.cache/electron/
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build app
+        run: yarn build
       - name: Build installers (Linux)
         run: yarn dist --linux
         env:
