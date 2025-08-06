@@ -1,6 +1,6 @@
 {
   "name": "import-xml-electron-app",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "dist/main.js",
   "author": "SSParisi Software",
   "description": "Sistema importador de XMLs de notas fiscais para os sistemas SSParisi",
