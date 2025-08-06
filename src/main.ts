@@ -32,18 +32,20 @@ class MainApp {
       }
       return null;
     });
+    autoUpdater.on('update-downloaded', () => {
+      autoUpdater.quitAndInstall();
+    });
   }
 
   private onReady = async () => {
     this.createWindow();
     this.createTray();
-    
-    // Só verifica atualizações se estiver rodando como AppImage
-    if (process.env.APPIMAGE) {
+    // Verifica atualizações no Windows e AppImage (Linux)
+    if (process.platform === 'win32' || process.env.APPIMAGE) {
       autoUpdater.forceDevUpdateConfig = true;
       await autoUpdater.checkForUpdatesAndNotify();
     } else {
-      console.log('Auto-update desabilitado: não está rodando como AppImage.');
+      console.log('Auto-update desabilitado: plataforma não suportada.');
     }
   };
 
