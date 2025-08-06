@@ -33,13 +33,7 @@
     "files": [
       "dist/**/*"
     ],
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "rrgoncalves",
-        "repo": "import-xml"
-      }
-    ],
+    "publish": "never",
     "win": {
       "target": [
         "nsis",
