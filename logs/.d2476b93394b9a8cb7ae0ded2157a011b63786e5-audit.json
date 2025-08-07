@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 12
+    },
+    "auditLog": "/home/rrgoncalves/Projetos/ss/pocs/import-xml/logs/.d2476b93394b9a8cb7ae0ded2157a011b63786e5-audit.json",
+    "files": [
+        {
+            "date": 1754578323439,
+            "name": "/home/rrgoncalves/Projetos/ss/pocs/import-xml/logs/app-2025-08-07.log",
+            "hash": "a43ab7ff5672e2f32f370ab848ce09c1b374ae013b2e5d267a68f5a71391eb2c"
+        }
+    ],
+    "hashType": "sha256"
+}
