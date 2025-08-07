@@ -1,4 +1,5 @@
 export interface FormDataDto {
-  directory: string;
-  document: string;
+  directory?: string;
+  document?: string;
+  timerEnabled?: boolean;
 }

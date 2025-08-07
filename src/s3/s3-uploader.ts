@@ -1,9 +1,10 @@
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import * as fs from 'fs';
+
 import { EnvConfig } from '../core/config/env-config';
 
 export interface S3UploaderConfig {
-  endpoint: string; // ex: 'https://s3.amazonaws.com' ou 'http://localhost:9000'
+  endpoint: string;
   region: string;
   accessKeyId: string;
   secretAccessKey: string;
@@ -13,9 +14,10 @@ export interface S3UploaderConfig {
 
 export class S3Uploader {
   private client: S3Client;
+
   private bucket: string;
 
-  static fromEnv(envPath: string = '.env'): S3Uploader {
+  static fromEnv(envPath = '.env'): S3Uploader {
     const env = new EnvConfig(envPath);
     return new S3Uploader({
       endpoint: env.get('S3_ENDPOINT') ?? '',
@@ -48,7 +50,23 @@ export class S3Uploader {
       Body: fileStream,
     });
     await this.client.send(command);
-    return `${this.config.endpoint.replace(/\/$/, '')}/${this.bucket}/${remoteKey}`;
+    return `${this.config.endpoint.replace(/\/$/, '')}/${
+      this.bucket
+    }/${remoteKey}`;
+  }
+
+  async uploadJsonObject(obj: unknown, remoteKey: string): Promise<string> {
+    const jsonString = JSON.stringify(obj);
+    const command = new PutObjectCommand({
+      Bucket: this.bucket,
+      Key: remoteKey,
+      Body: jsonString,
+      ContentType: 'application/json',
+    });
+    await this.client.send(command);
+    return `${this.config.endpoint.replace(/\/$/, '')}/${
+      this.bucket
+    }/${remoteKey}`;
   }
 }
 
