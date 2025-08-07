@@ -126,7 +126,7 @@ class MainApp {
   private createWindow() {
     this.win = new BrowserWindow({
       width: 700,
-      height: 450,
+      height: 550,
       webPreferences: {
         preload: path.join(__dirname, 'preload.js'),
         nodeIntegration: false,

@@ -13,6 +13,10 @@ class FormHandler {
 
   validateDocBtn: HTMLButtonElement;
 
+  timerToggle: HTMLInputElement;
+
+  timerLabel: HTMLSpanElement;
+
   constructor() {
     this.dirBtn = document.getElementById('dir-btn') as HTMLButtonElement;
     this.dirInput = document.getElementById('directory') as HTMLInputElement;
@@ -23,6 +27,10 @@ class FormHandler {
     this.validateDocBtn = document.getElementById(
       'validate-doc-btn',
     ) as HTMLButtonElement;
+    this.timerToggle = document.getElementById(
+      'timer-toggle',
+    ) as HTMLInputElement;
+    this.timerLabel = document.getElementById('timer-label') as HTMLSpanElement;
     this.initEvents();
   }
 
@@ -87,6 +95,12 @@ class FormHandler {
       }
     });
 
+    this.timerToggle.onchange = () => {
+      this.timerLabel.textContent = this.timerToggle.checked
+        ? 'Ativado'
+        : 'Desativado';
+    };
+
     this.saveBtn.onclick = () => {
       if (this.docError.textContent) {
         alert('Corrija o documento antes de salvar.');
@@ -95,6 +109,7 @@ class FormHandler {
       const data = {
         directory: this.dirInput.value,
         document: this.docInput.value,
+        timerEnabled: this.timerToggle.checked,
       };
       window[String('electronAPI')].saveFormData(data);
       alert('Dados salvos com sucesso!');
@@ -108,9 +123,13 @@ class FormHandler {
 
 window.addEventListener('DOMContentLoaded', async () => {
   const handler = new FormHandler();
-  const data = await window[String('electronAPI')].loadFormData();
+  const data = await await window[String('electronAPI')].loadFormData();
   if (data) {
     handler.dirInput.value = data.directory || '';
     handler.docInput.value = data.document || '';
+    handler.timerToggle.checked = !!data.timerEnabled;
+    handler.timerLabel.textContent = handler.timerToggle.checked
+      ? 'Ativado'
+      : 'Desativado';
   }
 });

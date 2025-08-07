@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
-  <title>Importador XML - SSParisi - V5</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self';">
+  <title>SSParisi Software - V5</title>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self';">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="./style.css">
   <style>
@@ -12,15 +14,27 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <h2>Importador de XML</h2>
+    <h2>Importador de Arquivos - SSParisi</h2>
+    <div class="form-group">
+      <label for="timer-toggle">Timer de leitura automática</label>
+      <div class="toggle-group">
+        <label class="switch">
+          <input type="checkbox" id="timer-toggle">
+          <span class="slider"></span>
+        </label>
+        <span id="timer-label">Desativado</span>
+      </div>
+    </div>
     <form autocomplete="off">
       <div class="form-group">
         <label for="document">Documento de identificação</label>
         <div class="doc-select">
           <input type="text" id="document" maxlength="18" placeholder="Informe CPF ou CNPJ" autocomplete="off">
-          <button type="button" id="validate-doc-btn" title="Localizar empresa na base SSParisi"><span class="material-icons">check_circle</span></button>
+          <button type="button" id="validate-doc-btn" title="Localizar empresa na base SSParisi"><span
+              class="material-icons">check_circle</span></button>
         </div>
         <span id="documentError" class="error"></span>
       </div>
@@ -28,9 +42,11 @@
         <label for="directory">Diretório</label>
         <div class="dir-select">
           <input type="text" id="directory" readonly placeholder="Selecione um diretório">
-          <button type="button" id="dir-btn" title="Selecionar diretório"><span class="material-icons">folder_open</span></button>
+          <button type="button" id="dir-btn" title="Selecionar diretório"><span
+              class="material-icons">folder_open</span></button>
         </div>
       </div>
+
     </form>
   </div>
   <div class="btn-group btn-group-outside">
@@ -39,4 +55,5 @@
   </div>
   <script src="./renderer.js"></script>
 </body>
+
 </html>
